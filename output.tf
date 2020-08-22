@@ -1,3 +1,4 @@
+/*
 output "acr_server_url" {
   value = azurerm_container_registry.acr.login_server
 }
@@ -12,4 +13,9 @@ output "postgress_details" {
 }
 output "acr_full_details" {
   value = azurerm_container_registry.acr
+}
+*/
+
+output "webapp_url" {
+  value = azurerm_app_service.main.default_site_hostname
 }

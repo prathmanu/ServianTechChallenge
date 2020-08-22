@@ -20,8 +20,8 @@ resource "azurerm_postgresql_server" "servian_postgresql_server" {
   geo_redundant_backup_enabled = false
   auto_grow_enabled            = true
 
-  administrator_login          = "postgres"
-  administrator_login_password = "RealChallenge4289"
+  administrator_login          = var.username
+  administrator_login_password = var.password
   version                      = "9.5"
   ssl_enforcement_enabled      = true
 }
