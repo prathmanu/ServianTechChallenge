@@ -32,8 +32,12 @@ locals {
 variable "username" {
   description = "The username for the DB master user"
   type        = string
+  #default     = "postgres"
 }
+
 variable "password" {
-  description = "The password for the DB master user"
+  description = "The password for the DB master user(Please use complex password)"
   type        = string
+  #default     = "TechChallenge2020"
+
 }
