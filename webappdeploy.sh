@@ -20,7 +20,7 @@ docker push "${AcrServerUrl//\"}""/techchallengeapp:latest"
 ID=$(docker images -q "${AcrServerUrl//\"}""/techchallengeapp:latest")
 
 #Creating the seed data in the db.
-read -p "Please enter public Ip to enable access to postgress server "  publicIp
+publicIp="$(dig +short myip.opendns.com @resolver1.opendns.com)"
 echo "Setting the firewall rule to allow current ip to run the db seed"
 az postgres server firewall-rule create -g "${ResourceGroupName//\"}" -s "${postgresServerName//\"}" -n allowip --start-ip-address $publicIp --end-ip-address $publicIp
 
@@ -30,5 +30,5 @@ docker run -e VTT_DBHOST="${postgresServerUrl//\"}" -e VTT_DBPASSWORD="${postgre
 # Cleaning up the firewall setting enable for db connection
 echo "Deleting the firewall rule created for runing the db feed"
 az postgres server firewall-rule delete --name allowip --resource-group "${ResourceGroupName//\"}" --server-name "${postgresServerName//\"}"
-
+sleep 30
 az webapp browse --name techchallenge-AppService --resource-group "${ResourceGroupName//\"}"
