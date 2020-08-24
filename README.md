@@ -38,3 +38,15 @@ https://github.com/servian/TechChallengeApp.git
 1. deploy.sh creates web app, postgres sql , key vault and container registry, web app  and keeps all the specific information in key vault.(here terraform apply --auto-approve is enabled to avoid user interation which is similar to a CI pipeline scenario). Web app will be configured to run from container from ACR Image and all the environment variables will be set in app settings.
 2. webappdeploy.sh will fetch all the info from key vault , build docker image push to container registry, run data base seed from local machine  
 
+## Infrastructure pipeline using Azure DevOps
+### changes 
+Add remote state store in main.tf file 
+ terraform {
+  backend "azurerm" {
+    resource_group_name  = "terraform-rg"
+    storage_account_name = "mytfstateaccount"
+    container_name       = "tfcontainer"
+  }
+
+  Added Azure-pipelines.yml to the repo 
+  

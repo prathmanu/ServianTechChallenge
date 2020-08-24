@@ -1,0 +1,64 @@
+stages:
+- stage: validate
+  jobs:
+  - job: validate
+    continueOnError: false
+    steps:
+    - task: TerraformInstaller@0
+      inputs:
+        terraformVersion: '0.12.3'
+ 
+    - task: TerraformTaskV1@0
+      displayName: 'init'
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        backendServiceArm: 'MyOwnSubscription(0c863b0e-68e9-49fe-958c-c1aa7ad0a4cc)'
+        backendAzureRmResourceGroupName: 'terraform-rg'
+        backendAzureRmStorageAccountName: 'mytfstateaccount'
+        backendAzureRmContainerName: 'tfcontainer'
+        backendAzureRmKey: 'terraform.tfstate'
+    - task: TerraformTaskV1@0
+      displayName: 'validate'
+      inputs:
+        provider: 'azurerm'
+        command: 'validate'
+- stage: deploy
+  jobs:
+  - deployment: deploy_terraform
+    continueOnError: false
+    environment: 'dev'
+    strategy:
+     runOnce:
+       deploy:
+        steps:
+          - checkout: self
+          - task: TerraformInstaller@0
+            displayName: 'install'
+            inputs:
+              terraformVersion: '0.12.3'
+          - task: TerraformTaskV1@0
+            displayName: 'init'
+            inputs:
+              provider: 'azurerm'
+              command: 'init'
+              backendServiceArm: 'MyOwnSubscription(0c863b0e-68e9-49fe-958c-c1aa7ad0a4cc)'
+              backendAzureRmResourceGroupName: 'terraform-rg'
+              backendAzureRmStorageAccountName: 'mytfstateaccount'
+              backendAzureRmContainerName: 'tfcontainer'
+              backendAzureRmKey: 'terraform.tfstate'
+          - task: TerraformTaskV1@0
+            displayName: 'plan'
+            inputs:
+              provider: 'azurerm'
+              command: 'plan'
+              environmentServiceNameAzureRM: 'MyOwnSubscription(0c863b0e-68e9-49fe-958c-c1aa7ad0a4cc)'
+          - task: TerraformTaskV1@0
+            displayName: 'apply'
+            inputs:
+              provider: 'azurerm'
+              command: 'apply'
+              environmentServiceNameAzureRM: 'MyOwnSubscription(0c863b0e-68e9-49fe-958c-c1aa7ad0a4cc)'
+
+
+            
