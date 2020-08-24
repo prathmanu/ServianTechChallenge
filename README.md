@@ -49,4 +49,5 @@ Add remote state store in main.tf file
   }
 
   Added Azure-pipelines.yml to the repo 
-  
+  https://github.com/prathmanu/ServianTechChallenge/blob/master/azure-pipelines.yml
+
