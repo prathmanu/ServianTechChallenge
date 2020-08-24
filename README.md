@@ -5,7 +5,7 @@
 
 A simple architecture adopted here to show case the automation.
 
-## Pre-requisite for Deployment
+## Prerequisite for Deployment
 
 Following tools to be installed
 
