@@ -13,7 +13,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
-        backendServiceArm: 'MyOwnSubscription(0c863b0e-68e9-49fe-958c-c1aa7ad0a4cc)'
+        backendServiceArm: 'MyOwnSubscription(xxxxxxxxxxxx)'
         backendAzureRmResourceGroupName: 'terraform-rg'
         backendAzureRmStorageAccountName: 'mytfstateaccount'
         backendAzureRmContainerName: 'tfcontainer'
@@ -42,7 +42,7 @@ stages:
             inputs:
               provider: 'azurerm'
               command: 'init'
-              backendServiceArm: 'MyOwnSubscription(0c863b0e-68e9-49fe-958c-c1aa7ad0a4cc)'
+              backendServiceArm: 'MyOwnSubscription(xxxxxxxxxxxx)'
               backendAzureRmResourceGroupName: 'terraform-rg'
               backendAzureRmStorageAccountName: 'mytfstateaccount'
               backendAzureRmContainerName: 'tfcontainer'
@@ -52,13 +52,13 @@ stages:
             inputs:
               provider: 'azurerm'
               command: 'plan'
-              environmentServiceNameAzureRM: 'MyOwnSubscription(0c863b0e-68e9-49fe-958c-c1aa7ad0a4cc)'
+              environmentServiceNameAzureRM: 'MyOwnSubscription(xxxxxxxxxx)'
           - task: TerraformTaskV1@0
             displayName: 'apply'
             inputs:
               provider: 'azurerm'
               command: 'apply'
-              environmentServiceNameAzureRM: 'MyOwnSubscription(0c863b0e-68e9-49fe-958c-c1aa7ad0a4cc)'
+              environmentServiceNameAzureRM: 'MyOwnSubscription(xxxxxxxxxx)'
 
 
             
