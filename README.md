@@ -1,4 +1,4 @@
-# ServianTechChallenge
+# TechChallenge App Deployment
 ## Architecture
 ![Architecture](/Images/TechChallenge.png)
 
