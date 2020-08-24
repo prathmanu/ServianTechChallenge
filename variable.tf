@@ -38,7 +38,7 @@ variable "username" {
 variable "password" {
   description = "The password for the DB master user(Please use complex password)"
   type        = string
-  default     = "TechChallenge2020"
+  
 
 }
 # Key vault variables
