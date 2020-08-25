@@ -26,7 +26,7 @@ https://github.com/servian/TechChallengeApp.git
 4. run bash deploy.sh commad,it will open a browser to log into your azure subscription for az cli. This will create all the azure services for you.
 5. Once the previous script completed, change directory to TechChallengeApp folder and run bash webdeploy.sh This will again ask you to log in to your Azure subscription.
 6. This script will ask for a user input to delete a firewall rule created for seeding the data base from local machine
-7. Once completed wait for some time for the web app to load(it will take 2-3 minutes to load the page, waiting for the web app to warm up)
+7. Once completed wait for some time(The selected Size will take 3-4 minutes to warm up) for the web app to load(it will take 2-3 minutes to load the page, waiting for the web app to warm up)
 
 ## Factors not considered 
 
