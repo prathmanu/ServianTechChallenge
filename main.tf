@@ -1,6 +1,12 @@
 provider "azurerm" {
   features {}
 }
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "terraform-rg"
+    storage_account_name = "mytfstateaccount"
+    container_name       = "tfcontainer"
+  }
 # This will create a seperate resource group for the challenge
 resource "azurerm_resource_group" "servian_resource_group" {
   name     = var.resource_group_name
@@ -170,7 +176,7 @@ resource "azurerm_key_vault_access_policy" "default_policy" {
 }
 
 # Create an Azure Key Vault access policy
-resource "azurerm_key_vault_access_policy" "policy" {
+resource "azurerm_key_vault_access_policy" "policy_Az" {
   for_each                = var.policies
   key_vault_id            = azurerm_key_vault.key-vault.id
   tenant_id               = lookup(each.value, "tenant_id")
