@@ -41,13 +41,15 @@ https://github.com/servian/TechChallengeApp.git
 ##  Another Approach: Infrastructure pipeline using Azure DevOps
 ### changes 
 Add remote state store in main.tf file 
+
+```json
  terraform {
   backend "azurerm" {
     resource_group_name  = "terraform-rg"
     storage_account_name = "mytfstateaccount"
     container_name       = "tfcontainer"
   }
-
+```
   Added Azure-pipelines.yml to the repo 
   https://github.com/prathmanu/ServianTechChallenge/blob/master/azure-pipelines.yml
 
