@@ -29,6 +29,12 @@ https://github.com/servian/TechChallengeApp.git
 6. This script will ask for a user input to delete a firewall rule created for seeding the data base from local machine
 7. Once completed wait for some time(The selected Size will take 3-4 minutes to warm up) for the web app to load(it will take 2-3 minutes to load the page, waiting for the web app to warm up)
 
+![webApp](/Images/webapp.png)
+
+## How to clean up
+1. Change directory to ServianTechChallenge Directory
+2. Run 'terraform destroy' command
+
 ## Factors not considered 
 
 1. Terraform state is local not remote(to avoid complexity)
