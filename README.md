@@ -12,6 +12,7 @@ Following tools to be installed
 1. az cli 
 2. terraform 
 3. bash(preferably mac or linux)
+4. Docker Installed
 
 ## Steps to be carried out for deployment
 
