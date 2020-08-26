@@ -22,7 +22,7 @@ https://github.com/prathmanu/ServianTechChallenge.git   and
 https://github.com/servian/TechChallengeApp.git
 
 2. Copy webappdeploy.sh from ServianTechChallenge  to TechChallengeApp root folder. 
-3. Edit db.go file in db folder line 44 and line 50 sslmode=disable to sslmode=enable to allow ssl to postgres server
+3. Edit db.go file in db folder line 44 and line 50 sslmode=disable to sslmode=require to allow ssl to postgres server
 ![Edit](/Images/edit.png)
 4. open a command shell and change directory to ServianTechChallenge folder
 5. run bash deploy.sh commad,it will open a browser to log into your azure subscription for az cli. This will create all the azure services for you.
